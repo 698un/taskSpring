@@ -2,10 +2,8 @@ package by.unil2.itstep.taskSpring.dao.entity;
 
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 //DB:dbtask
 @Entity
@@ -16,6 +14,11 @@ public class UserEntity {
     private Long id;
     private String login;
     private String password;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "executor")// CascadeType.All - by delete User deleting all it Tasks
+    private List<TaskEntity> tasks;
+
+
 
     public void setId(Long id) {  this.id = id;  }
     public Long getId() {  return id; }
