@@ -22,6 +22,7 @@ public class UserModel {
 
     public void setTaskList(List<TaskModel> taskModelList) {this.taskList = taskModelList;}
 
+
     public UserModel(){
 
     }//constructor

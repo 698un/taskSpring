@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class UserService {
 
@@ -45,6 +48,34 @@ public class UserService {
         userRep.deleteById(userId);
         return userId;
         }//getOneUser
+
+
+    public List<UserModel> getUserList()throws UserNotFoundException {
+
+        try {
+            List<UserEntity> userEntityList = (List<UserEntity>)userRep.findAll();
+
+            if (userEntityList==null) throw new UserNotFoundException("not users in dataBase");
+
+            //converted to Model for WEB
+            List<UserModel> userModelList = userEntityList.stream()
+                                                          .map(UserModel::toModel)
+                                                          .collect(Collectors.toList());
+            return userModelList;
+            } catch (UserNotFoundException e) {
+                throw e;//new UserNotFoundException(e.getMessage());
+            } catch (Exception e) {
+                throw e;
+                }
+
+
+
+    }//getUserList
+
+
+
+
+
 
 
 

@@ -40,7 +40,39 @@ public class TaskController {
             return ResponseEntity.badRequest().body("not added task");
         }
 
-    }//addNewTask
+    }//updateTask
+
+    @GetMapping("/all")
+    public ResponseEntity getTaskListAll(){
+
+        try{
+            return ResponseEntity.ok(taskService.getAllTask());
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("not added task");
+        }
+
+        }//getTaskListAll
+
+
+    @GetMapping("/uncomplette")
+    public ResponseEntity getUncompleteForExecutor(@RequestParam("executor") Long executorId ){
+
+        try{
+            return ResponseEntity.ok(taskService.getAllUncompletteTaskForExecutor(executorId));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+
+    }//getTaskListAll
+
+
+
+
+
+
+
+
+
 
 
 

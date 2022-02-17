@@ -19,8 +19,6 @@ public class UserEntity {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "executor")// CascadeType.All - by delete User deleting all it Tasks
     private List<TaskEntity> taskList;
 
-
-
     public void setId(Long id) {  this.id = id;  }
     public Long getId() {  return id; }
 
@@ -31,9 +29,18 @@ public class UserEntity {
     public String getPassword() {   return password;  }
 
     public List<TaskEntity> getTaskList(){  return this.taskList; }
+    public void setTaskList(List<TaskEntity> inpTaskList){  this.taskList = inpTaskList; }
 
     //default constructor
     public UserEntity(){}//constructor
+
+    public String passwordHash(){
+
+
+
+        return null;
+
+        }//passwordHash
 
 
 }//class UserEntity

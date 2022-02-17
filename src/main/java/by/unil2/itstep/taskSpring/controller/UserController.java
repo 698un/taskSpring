@@ -90,7 +90,7 @@ public class UserController {
 
         try {
 
-            return ResponseEntity.ok("Server OK");
+            return ResponseEntity.ok(userService.getUserList());
 
             } catch (Exception e) {
             return ResponseEntity.badRequest().body("Error");
