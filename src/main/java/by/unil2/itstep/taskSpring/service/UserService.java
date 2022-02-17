@@ -20,18 +20,17 @@ public class UserService {
 
 
 
-    public UserEntity addNewUser(UserEntity newUser)throws UserAllreadyExistException{
+    public UserModel addNewUser(UserEntity newUser)throws UserAllreadyExistException{
 
         //Verify this userLogin in table_user_entity
         if (userRep.findByLogin(newUser.getLogin())!=null)
             throw new UserAllreadyExistException("This user is exist in database");
 
-        return userRep.save(newUser);
+        return UserModel.toModel(userRep.save(newUser));
         }//addNewUser
 
 
     public UserModel getOne(Long userId)throws UserNotFoundException{
-
 
         UserEntity user = userRep.findById(userId).get();
         if (user==null) throw new UserNotFoundException("User not found");
@@ -45,10 +44,7 @@ public class UserService {
 
         userRep.deleteById(userId);
         return userId;
-
-
-
-    }//getOneUser
+        }//getOneUser
 
 
 

@@ -38,23 +38,31 @@ public class UserController {
 
 
     /**
-     * This
+     * Return One user by ID
+     * @param userId
+     * @return  UserModel
      */
     @GetMapping("/{id}")
     public ResponseEntity getOneUser(@PathVariable("id") Long userId){
 
         try {
             return ResponseEntity.ok(userService.getOne(userId));
+
         } catch(UserNotFoundException e){
             return ResponseEntity.badRequest().body(e.getMessage());
+
         } catch (Exception e){
-            return ResponseEntity.badRequest().body("Error");
+            return ResponseEntity.badRequest().body(e.getMessage());
         }
 
 
     }//getUserOne
 
-
+    /**
+     * Delet One User
+     * @param userId
+     * @return
+     */
     @DeleteMapping("/{id}")
     public ResponseEntity deleteUser(@PathVariable("id") Long userId){
 

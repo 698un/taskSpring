@@ -16,7 +16,7 @@ public class UserEntity {
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "executor")// CascadeType.All - by delete User deleting all it Tasks
-    private List<TaskEntity> tasks;
+    private List<TaskEntity> taskList;
 
 
 
@@ -28,6 +28,8 @@ public class UserEntity {
 
     public void setPassword(String password) { this.password = password; }
     public String getPassword() {   return password;  }
+
+    public List<TaskEntity> getTaskList(){  return this.taskList; }
 
     //default constructor
     public UserEntity(){}//constructor
