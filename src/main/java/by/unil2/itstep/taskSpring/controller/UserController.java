@@ -48,11 +48,29 @@ public class UserController {
         } catch(UserNotFoundException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch (Exception e){
-            return ResponseEntity.badRequest().body(e.getMessage());
+            return ResponseEntity.badRequest().body("Error");
         }
 
 
     }//getUserOne
+
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity deleteUser(@PathVariable("id") Long userId){
+
+        try {
+            return ResponseEntity.ok(userService.deleteOne(userId));
+            } catch(UserNotFoundException e){
+              return ResponseEntity.badRequest().body(e.getMessage());
+            } catch (Exception e){
+              return ResponseEntity.badRequest().body("delete Error");
+        }
+
+
+    }//getUserOne
+
+
+
 
 
 

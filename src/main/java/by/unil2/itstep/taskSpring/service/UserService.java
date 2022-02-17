@@ -34,9 +34,23 @@ public class UserService {
 
 
         UserEntity user = userRep.findById(userId).get();
-        if (user==null) throw new UserNotFoundException("This user not found");
+        if (user==null) throw new UserNotFoundException("User not found");
         return UserModel.toModel(user);
         }//getOneUser
+
+
+    public Long deleteOne(Long userId)throws UserNotFoundException{
+        UserEntity user = userRep.findById(userId).get();
+        if (user==null) throw new UserNotFoundException("This user not found");
+
+        userRep.deleteById(userId);
+        return userId;
+
+
+
+    }//getOneUser
+
+
 
 
 }
