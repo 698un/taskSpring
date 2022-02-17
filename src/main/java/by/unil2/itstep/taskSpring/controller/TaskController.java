@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+
+
+//{"title":"endWord","content":"full descripton","executor":{"id":1,"login":"log1"}}
+
 @RestController
 @RequestMapping("/tasks")
 public class TaskController {
@@ -17,6 +21,7 @@ public class TaskController {
 
     @PostMapping
     public ResponseEntity addNewTask(@RequestBody TaskEntity newTask){
+
 
         try{
             return ResponseEntity.ok(taskService.addNewTask(newTask));

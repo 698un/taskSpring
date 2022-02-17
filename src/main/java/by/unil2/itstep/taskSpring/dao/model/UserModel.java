@@ -35,7 +35,16 @@ public class UserModel {
         userModel.setId(userEntity.getId());
         userModel.setLogin(userEntity.getLogin());
 
-        userModel.setTaskList(userEntity.getTaskList().stream().map(TaskModel::toModel).collect(Collectors.toList()));
+        //If task list not empty then convert this taskList in taskModelList
+        if (userEntity.getTaskList()!=null) {
+            userModel.setTaskList(userEntity.getTaskList()
+                                            .stream()
+                                            .map(TaskModel::toModel)
+                                            .collect(Collectors.toList()));
+
+            }//set taskList if not empty
+
+
 
         return userModel;
         }

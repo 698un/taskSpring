@@ -19,18 +19,20 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-
-    @PostMapping("/add")
+    @PostMapping
     public ResponseEntity addNewUser(@RequestBody UserEntity newUser){
 
+            newUser.setId(null);//Id generated database
 
             try {
                 userService.addNewUser(newUser);
                 return ResponseEntity.ok().body("user is added");
+
             } catch (UserAllreadyExistException e){
                 return ResponseEntity.badRequest().body(e.getMessage());
 
             } catch (Exception e) {
+                    e.printStackTrace();
                    return ResponseEntity.badRequest().body("Error registration");
                    }
 
@@ -76,12 +78,6 @@ public class UserController {
 
 
     }//getUserOne
-
-
-
-
-
-
 
 
     /**

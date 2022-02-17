@@ -18,6 +18,11 @@ public class TaskService {
     private UserRepository userRep;
 
     public TaskModel addNewTask(TaskEntity newTask){
+
+        //new task necesalary incomplette
+        newTask.setComplette(false);
+
+
         return TaskModel.toModel(taskRep.save(newTask));
         }
 

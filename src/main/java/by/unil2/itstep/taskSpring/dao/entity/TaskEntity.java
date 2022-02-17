@@ -3,6 +3,7 @@ import javax.persistence.*;
 
 
 @Entity
+@Table(name = "t_tasks")
 public class TaskEntity {
 
     @Id
@@ -10,15 +11,16 @@ public class TaskEntity {
     private Long id;
 
     private String title;
-    private String content;
-    private Boolean complette;
+    private Boolean completed;
+    private String description;
 
-    public Boolean getComplette() { return complette; }
-    public void setComplette(Boolean complette) { this.complette = complette; }
 
     @ManyToOne
     @JoinColumn(name = "executor_id")//executor - Исполнитель
     private UserEntity executor;
+
+    public Boolean getComplette() { return completed; }
+    public void setComplette(Boolean inpBoolean) { this.completed = inpBoolean; }
 
     public Long getId() {return id;}
     public void setId(Long id) {this.id = id; }
@@ -26,14 +28,11 @@ public class TaskEntity {
     public String getTitle() { return title; }
     public void setTitle(String title) {this.title = title;}
 
-    public String getContent() {return content;}
-    public void setContent(String content) {this.content = content;}
+    public String getDescription() {return description;}
+    public void setDescription(String inpString) {this.description = inpString;}
 
     public UserEntity getExecutor() {return executor;}
     public void setExecutor(UserEntity executor) {this.executor = executor;}
-
-
-
 
 
 

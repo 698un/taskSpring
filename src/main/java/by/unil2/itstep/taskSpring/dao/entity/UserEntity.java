@@ -7,6 +7,7 @@ import java.util.List;
 
 //DB:dbtask
 @Entity
+@Table(name = "t_users")
 public class UserEntity {
 
     @Id
