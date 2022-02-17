@@ -20,4 +20,11 @@ CREATE TABLE t_tasks(
     title varchar(64) not null,
     completed BOOLEAN not NULL,
     PRIMARY KEY (id)
-    )
+    ) engine=MyISAM;
+
+#TABLE OF ROLES
+CREATE TABLE t_roles(
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    title varchar(100) not null,
+    PRIMARY KEY (id)
+    ) engine=MyISAM;

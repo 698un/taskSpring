@@ -16,6 +16,11 @@ public class UserEntity {
     private String login;
     private String password;
 
+    @ManyToOne
+    @JoinColumn(name = "role_id")
+    private RoleEntity role;
+
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "executor")// CascadeType.All - by delete User deleting all it Tasks
     private List<TaskEntity> taskList;
 
@@ -27,6 +32,10 @@ public class UserEntity {
 
     public void setPassword(String password) { this.password = password; }
     public String getPassword() {   return password;  }
+
+    public void setRole(RoleEntity inpRole) { this.role = inpRole; }
+    public RoleEntity getRole() { return this.role; }
+
 
     public List<TaskEntity> getTaskList(){  return this.taskList; }
     public void setTaskList(List<TaskEntity> inpTaskList){  this.taskList = inpTaskList; }
