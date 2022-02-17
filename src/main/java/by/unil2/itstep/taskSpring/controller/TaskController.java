@@ -22,7 +22,6 @@ public class TaskController {
     @PostMapping
     public ResponseEntity addNewTask(@RequestBody TaskEntity newTask){
 
-
         try{
             return ResponseEntity.ok(taskService.addNewTask(newTask));
         } catch (Exception e) {

@@ -22,7 +22,6 @@ public class TaskService {
         //new task necesalary incomplette
         newTask.setComplette(false);
 
-
         return TaskModel.toModel(taskRep.save(newTask));
         }
 
