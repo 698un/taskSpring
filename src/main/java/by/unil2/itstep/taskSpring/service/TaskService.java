@@ -45,9 +45,9 @@ public class TaskService {
 
     public List<TaskModel> getAllTask(){
         List<TaskEntity> taskList = (List<TaskEntity>)taskRep.findAll();
-        List<TaskModel> taskModelList = taskList.stream()
-                                                .map(TaskModel::toModel)
-                                                .collect(Collectors.toList());
+
+        List<TaskModel> taskModelList = TaskModel.toModelList(taskList);
+
         return taskModelList;
         }//getAllTask
 
@@ -59,14 +59,8 @@ public class TaskService {
     public List<TaskModel> getAllUncompletteTaskForExecutor(Long executorId){
 
         List<TaskEntity> taskEntityList = taskRep.getAllUncompletteTaskForExecutor(executorId);
-
         return TaskModel.toModelList(taskEntityList);
-
-
         }//getAllUncompletteTaskForExecutor(Long executorId){
-
-
-
 
 
 }

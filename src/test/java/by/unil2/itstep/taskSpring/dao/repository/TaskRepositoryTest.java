@@ -1,18 +1,15 @@
 package by.unil2.itstep.taskSpring.dao.repository;
 
 import by.unil2.itstep.taskSpring.dao.entity.TaskEntity;
-
 import by.unil2.itstep.taskSpring.dao.entity.UserEntity;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 import java.util.List;
 
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
-
-import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @DataJpaTest
 class TaskRepositoryTest {
