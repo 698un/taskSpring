@@ -40,15 +40,15 @@
 		</dependency>
 
 
+
+		<!--  FOR DB WORK -->
+
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
 			<version>8.0.0</version>
 		</dependency>
 
-
-
-		<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -62,7 +62,6 @@
 
 
 		<!--  FOR TESTING-->
-
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
